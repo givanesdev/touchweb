@@ -1,0 +1,40 @@
+{% extends "home/base.html" %}
+
+{% block header %}
+{% load static %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
+<!--<script type="text/javascript" src="{% static 'backoffice/js/main.js' %}"></script>-->
+{% endblock header %}
+
+{% block content %}
+<div class="row justify-content-center align-items-center">
+    <div class="col-md p-4">
+        <div class="bg-white">
+            <table class="table table-stripped">
+                <thead>
+                    <tr class="bg-info">
+                        <th scope="col">Id</th>
+                        <th scope="col">Full Name</th>
+                        <th scope="col">ID number</th>
+                        <th scope="col">Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for person in data %}
+                    <tr scope="row">
+                        <td> {{ person.id }} .</td>
+                        <td>{{ person.full_name  }}</td>
+                        <td>{{ person.id_number }}</td>
+                        <td>{{ person.location }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
